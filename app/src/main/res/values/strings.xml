@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ChessOexScannerDemo</string>
+    <string name="installed_engines">Installed chess OEX engines</string>
 </resources>
