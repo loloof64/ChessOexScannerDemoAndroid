@@ -1,11 +1,10 @@
 package com.loloof64.chessoexscannerdemo
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loloof64.chessoexscannerdemo.databinding.ActivityMainBinding
-import com.kalab.chess.enginesupport.ChessEngineResolver
+import com.loloof64.chessoexscanner.ChessEngineUtils
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -13,13 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.mainView.adapter = CustomAdapter(getEnginesList(context = this))
+        binding.mainView.adapter = CustomAdapter(ChessEngineUtils.getEnginesNames(context = this))
         binding.mainView.layoutManager = LinearLayoutManager(this)
-    }
-
-    private fun getEnginesList(context: Context) : Array<String> {
-        val resolver = ChessEngineResolver(context)
-        val engines = resolver.resolveEngines()
-        return engines?.map { it.name }?.toTypedArray() ?: arrayOf()
     }
 }
