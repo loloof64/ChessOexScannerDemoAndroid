@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/21/trunk/ChessEngineSupportLibrary/src/com/kalab/chess/enginesupport
+END
+ChessEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/20/trunk/ChessEngineSupportLibrary/src/com/kalab/chess/enginesupport/ChessEngine.java
+END
+ChessEngineResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/20/trunk/ChessEngineSupportLibrary/src/com/kalab/chess/enginesupport/ChessEngineResolver.java
+END
+ChessEngineProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/21/trunk/ChessEngineSupportLibrary/src/com/kalab/chess/enginesupport/ChessEngineProvider.java
+END

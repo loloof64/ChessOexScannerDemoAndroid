@@ -1,0 +1,3 @@
+rootProject.name = "ChessOexScannerDemo"
+include ':app'
+include ':ChessOexScanner'
