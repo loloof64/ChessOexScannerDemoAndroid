@@ -8,22 +8,34 @@ In order to compile the AAR archive, open Gradle toolbar in Android Studio and l
 
 ### Usage
 
-Import the release AAR into your project. Then you have useful methods in Object `ChessEngineUtils`
+Import the release AAR into your project.
+Create a new `ChessEngineUtils` providing its constructor the context (`Context`) and the application ID(`String`) .
+Then the instance will have the following methods :
 
-* `fun getEnginesNames(context: Context): Array<String>` : get the available engines names from the
+* `fun getMyStoreEnginesNames(): Array<String> {` : get the available engines names from the
 engines you get delivered from PlayStore,
 
-* `fun getEnginesCount(context: Context): Int {` : get the available engines count
+* `fun installEngineFromMyStore(index: Int)` : copy an engine into
+the application internal files (more precisely, into the `engines` subfolder). The index matches the
+order got from `getMyStoreEnginesNames()`,
 
-* `fun copyEngineInInternalFiles(context: Context, index: Int): EngineData {` : copy an engine into
-the application internal files (more precisely, into the `engines` subfolder). `EngineData` is 
-simply the `data class EngineData(val fileName: String, val packageName: String, val versionCode: Int)`,
-so that you have the possibility to store those data in the preferences, and eventually check is a new
-version is available, with the following method. Be careful to check that the index is in bounds before !
+* `fun newVersionAvailableFromMyStoreFor(index: Int) : Boolean {` :
+get the last version code of a given engine, so that you'll be able to install it again if a new version
+is available,
 
-* `fun getEngineLastVersionCode(context: Context, currentData: EngineData): Int {` :
-get the last version code of a given engine, so that you'll be able to copy it again if a new version
-is available.
+* `fun listInstalledEngines() : Array<String> {` :
+get the list of installed engines (copied into internal files),
+
+* `fun executeInstalledEngine(index: Int, errorCallback: (Error) -> Unit) {` :
+execute an installed engine. The index matches the order got from `listInstalledEngines()`,
+
+* `fun sendCommandToRunningEngine(command: String) {` : send a command to the current running engine
+(if any),
+
+* `fun readCurrentEnginePendingOutputs(): Array<String> {`: read outputs from current running engine,
+or empty array if no running engine,
+
+* `fun stopCurrentRunningEngine() {` : close current engine if any.
 
 ## CREDITS
 
